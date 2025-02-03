@@ -1,1 +1,5 @@
 notes.txt
+package.json
+package-lock.json
+# Ignorer node_modules (les dépendances npm)
+node_modules/
