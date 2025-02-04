@@ -146,8 +146,4 @@ body, html {
     .text-box h1 {
         font-size: 28px;
     }
-
-    .navbar-toggler {
-        margin-left: 50% !important;
-    }
 }
