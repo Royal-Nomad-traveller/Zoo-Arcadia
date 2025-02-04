@@ -1,10 +1,106 @@
-.navbar {
-    background: rgba(160, 209, 150, 0.75);
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
+/* Style général */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Neucha", serif;
 }
 
+/* Section principale */
 .hero-section {
-    background: url('/images/lion-bg.jpg');
-    width: 100%;
+    position: relative;
     height: 100vh;
-    background-size: cover;
+    background: url('/images/lion-bg.jpg') no-repeat center center/cover;
+}
+
+/* Barre de navigation */
+.custom-navbar {
+    background-color: rgba(144, 238, 144, 0.8);
+    border-radius: 200px;
+    padding: 10px 20px;
+    margin: 0 80px;
+    top: 10%;
+}
+
+.navbar-toggler {
+    background: none;
+    border: solid !important; 
+    border-radius: 100px !important;
+    outline: none !important; 
+    box-shadow: none !important; 
+}
+
+/* Logo */
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Lien de la navbar */
+.navbar-nav .nav-link {
+    font-size: 18px;
+    color: black;
+    margin-right: 15px;
+    transition: 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: darkgreen;
+}
+
+/* Contenu principal */
+.hero-content {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+}
+
+/* Boîte de texte */
+.text-box {
+    background: rgba(144, 238, 144, 0.8);
+    padding: 30px;
+    border-radius: 70px;
+    text-align: center;
+    font-family: "Neucha", serif;
+}
+
+.text-box h1 {
+    font-size: 74px;
+    font-weight: normal;
+}
+
+/* Pour les tablettes */
+@media (max-width: 1024px) {
+    .custom-navbar {
+        margin: 0 50px;
+    }
+
+    .hero-content {
+        top: 63%;
+        width: 80%;
+    }
+}
+
+/* Pour les mobiles*/
+@media (max-width: 768px) {
+    .custom-navbar {
+        margin: 0 30px;
+    }
+
+    .hero-content {
+        top: 65%;
+        width: 90%;
+    }
+
+    .text-box {
+        padding: 20px;
+    }
+
+    .text-box h1 {
+        font-size: 28px;
+    }
 }
