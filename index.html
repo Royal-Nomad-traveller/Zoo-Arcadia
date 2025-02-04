@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="design/css/acceuil.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Arcadia</title>
   </head>
 
@@ -39,10 +40,72 @@
           </div>
       </section>
 
+      <section class="container text-center mt-4">
+        <h2 class="title-habitat">Habitats</h2>
+
+        <!-- Grid habitation -->
+        <div class="row justify-content-center gy-4 mt-4">
+          <div class="col-md-4">
+            <div class="habitat">
+              <img src="images/d-habitats/savane.jpg" alt="Savane" class="img-fluid rounded">
+              <p>Savane</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="habitat">
+              <img src="images/d-habitats/jungle.jpg" alt="Savane" class="img-fluid rounded">
+              <p>Jungle</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="habitat">
+              <img src="images/d-habitats/marais.jpg" alt="Savane" class="img-fluid rounded">
+              <p>Marais</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-center mt-4">
+          <button class="btn btn-success mb-4 p-3 btn-habitat">Voir les habitats</button>
+        </div>
+      </section>
+
+      <section class="container text-center mt-4">
+        <h2 class="title-animaux">Nos animaux</h2>
+
+        <!-- Le carrousel -->
+         <div class="carousel-container">
+          <button class="arrow left">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+
+          <div class="carousel">
+            <img src="images/img-animaux/lion.jpg" alt="Lion" class="animal-img">
+            <img src="images/img-animaux/antilope.jpg" alt="Antilope" class="animal-img">
+            <img src="images/img-animaux/crocodile.jpg" alt="Crocodile" class="animal-img">
+            <img src="images/img-animaux/flamants.jpg" alt="Flaments Rose" class="animal-img">
+            <img src="images/img-animaux/guepard.jpg" alt="Guépard" class="animal-img">
+            <img src="images/img-animaux/hipopotame.jpg" alt="Hipopotame" class="animal-img">
+            <img src="images/img-animaux/paon.jpg" alt="Paon" class="animal-img">
+          </div>
+
+          <button class="arrow right">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+         </div>
+
+         <div class="d-flex justify-content-center mt-4">
+          <a href="animaux.html" class="btn btn-success p-3 mb-4 btn-animaux">Voir nos animaux</a>
+         </div>
+      </section>
+
 
     <footer>
 
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="scripts/carrousel.js"></script>
   </body>
 </html>
