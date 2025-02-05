@@ -133,7 +133,7 @@ body {
     background-color: #5aa468 !important;
 }
 
-
+/* Section animaux */
 .title-animaux {
     font-size: 2rem;
     font-weight: bold;
@@ -145,14 +145,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 80%;
+    margin: auto;
     overflow: hidden;
-    padding: 10px;
+    padding: 0 60px;
     z-index: 1;
 }
 
+
+
 .carousel {
     display: flex;
-    gap: 15px;
+    gap: 20px;
+    width: 100%;
     overflow-x: auto;
     scroll-behavior: smooth;
     scrollbar-width: none;
@@ -161,8 +166,9 @@ body {
 }
 
 .animal-img {
-    width: 250px;
-    height: 220px;
+    width: 300px;
+    height: auto;
+    justify-content: center;
     object-fit: cover;
     border-radius: 20px;
     transition: transform 0.3s ease-in-out;
@@ -187,7 +193,7 @@ body {
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-    z-index: 10;
+    z-index: 20;
 }
 
 .arrow:hover {
@@ -196,11 +202,11 @@ body {
 }
 
 .left {
-    left: 10px;
+    left: 5px;
 }
 
 .right {
-    right: 10px;
+    right: 5px;
 }
 
 .btn-animaux {
@@ -210,6 +216,75 @@ body {
     padding: 10px 20px !important;
 }
 
+
+/* Section avis  */
+
+.section-avis {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.card {
+    border-radius: 20px !important;
+    background: rgba(90, 164, 104, .95) !important;
+    padding: 20px !important;
+    margin: 10px !important;
+}
+
+.stars {
+    color: #ffc107;
+    font-size: 1.2rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #2E7D32;
+    border-radius: 50%;
+    padding: 20px;
+}
+
+.btn-avis {
+    border: none !important;
+    border-radius: 20px !important;
+    font-size: 1.2rem !important;
+    padding: 10px 20px !important;
+}
+
+
+/* Le pied de page (footer) */
+
+.footer {
+    background-color: rgba(120, 141, 86, 0.3) !important;
+    border-radius: 30px !important;
+    margin: 0px 30px !important;
+}
+
+.energy-img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.3s;
+}
+
+.energy-img:hover {
+    transform: scale(1.05);
+}
+
+.footer a {
+    text-decoration: none;
+    color: black;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+    color: #2E7D32;
+}
 /* Pour les ordi-portable et tablettes */
 @media (max-width: 1024px) {
 
@@ -247,6 +322,15 @@ body {
 
 /* Pour les mobiles petits */
 @media (max-width: 530px) {
+    
+    .social-icons {
+        margin-bottom: 15px;
+    }
+    .energy-img {
+        display: block;
+        width: 150px;
+        margin: 10px 0;
+    }
 
     #btn-login {
         display: none;
@@ -267,5 +351,14 @@ body {
 
     .text-box h1 {
         font-size: 28px;
+    }
+
+    /* Cartes des avis  */
+
+    .card {
+        border-radius: 20px !important;
+        background: rgba(90, 164, 104, .95) !important;
+        padding: 20px !important;
+        margin: 10px 55px !important;
     }
 }
