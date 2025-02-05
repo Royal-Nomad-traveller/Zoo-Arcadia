@@ -1,0 +1,77 @@
+header {
+    margin-top: 20px;
+}
+
+/* Bouton de connexion */
+#btn-login {
+    margin-left: auto;
+    border-radius: 20px;
+    padding: 8px 10px;
+    font-size: 16px;
+    font-family: "Neucha", serif;
+}
+
+/* Navbar */
+.custom-navbar {
+    background-color: rgba(144, 238, 144, 0.8);
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 0 80px;
+    top: 2%;
+}
+
+/* Bouton de menu responsive */
+.navbar-toggler {
+    margin-left: 10px !important;
+    background: none;
+    border: solid !important; 
+    border-radius: 100px !important;
+    outline: none !important; 
+    box-shadow: none !important; 
+}
+
+/* Logo */
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Lien de navigation */
+.navbar-nav .nav-link {
+    font-family: "Neucha", serif;
+    font-size: 18px;
+    color: black;
+    margin-right: 15px;
+    transition: 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: darkgreen;
+}
+
+/* Empêcher la navbar de prendre toute la largeur */
+.navbar-collapse {
+    flex-grow: 0 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .custom-navbar {
+        margin: 0 30px;
+    }
+
+    .navbar-toggler {
+        margin-left: 10px !important;
+    }
+}
+
+@media (max-width: 530px) {
+    #btn-login {
+        display: none;
+    }
+
+    .custom-navbar {
+        margin: 0 30px;
+    }
+}

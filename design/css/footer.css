@@ -1,0 +1,36 @@
+.footer {
+    background-color: rgba(120, 141, 86, 0.3) !important;
+    border-radius: 30px !important;
+    margin: 0px 30px !important;
+}
+
+/* Images d'énergie */
+.energy-img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.3s;
+}
+
+.energy-img:hover {
+    transform: scale(1.05);
+}
+
+/* Liens du footer */
+.footer a {
+    text-decoration: none;
+    color: black;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+    color: #2E7D32;
+}
+
+/* Mobiles */
+@media (max-width: 530px) {
+    .social-icons {
+        margin-bottom: 15px;
+    }
+}
