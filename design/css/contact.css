@@ -1,0 +1,39 @@
+.custom-modal {
+    background-color: #a3cf9e !important;
+    border-radius: 20px !important;
+    padding: 20px !important;
+    font-size: 1.2rem !important;
+}
+
+.custom-modal .modal-header {
+    background-color: #8bb381 !important;
+    color: rgb(0, 0, 0);
+}
+
+.modal-title {
+    font-size: 1.5rem !important;
+}
+
+.custom-modal .form-control {
+    border-radius: 10px;
+    border: solid 1px #6b8e23;
+}
+
+.custom-modal .btn-close {
+    background-color: white;
+    border-radius: 50%;
+}
+
+.custom-btn {
+    background-color: #4caf50 !important;
+    color: black !important;
+    font-weight: bold !important;
+    padding: 10px 20px !important;
+    border-radius: 10px !important;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.custom-btn:hover {
+    background-color: #388e3c;
+    transform: scale(1.03);
+}
