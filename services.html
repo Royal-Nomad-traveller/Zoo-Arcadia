@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="design/css/menu.css">
     <link rel="stylesheet" href="design/css/footer.css">
     <link rel="stylesheet" href="design/css/commun.css">
-    <link rel="stylesheet" href="design/css/habitat.css">
+    <link rel="stylesheet" href="design/css/services.css">
     <!-- Bootstrap 5 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
@@ -30,15 +30,118 @@
                         <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
                         <li class="nav-item"><a class="nav-link" href="habitat.html">Habitats</a></li>
                         <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
+    <!-- Fenêtre Modale de contact -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLablel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content custom-modal">
+            <div class="modal-header">
+              <h5 class="modal-title" id="contactModalLablel">
+                <i class="bi bi-envelope-arrow-up"></i>
+                Contactez-nous
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <!-- Champ Nom Prénom -->
+                <div class="mb-3">
+                  <label for="name" class="form-label">Nom et Prénom</label>
+                  <input type="text" class="form-control" id="name" placeholder="Entrez votre nom et prénom" required>
+                </div>
+
+                <!-- Champ Email -->
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="Entrez votre adresse email" required>
+                </div>
+
+                <!-- Champ Titre -->
+                <div class="mb-3">
+                  <label for="title" class="form-label">Titre</label>
+                  <input type="text" class="form-control" id="title" placeholder="Entrez le sujet de votre message" required>
+                </div>
+
+                <!-- Description -->
+                <div class="mb-3">
+                  <label for="message" class="form-label">Description</label>
+                  <textarea class="form-control" id="message" rows="4" placeholder="Décrivez votre demande ici..."></textarea>
+                </div>
+
+                <!-- Bouton d'envoi -->
+                <div class="text-center">
+                  <button type="submit" class="btn custom-btn">Envoyer</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <main>
-        
+        <div class="container mt-5 mb-5">
+            <h1 class="text-center mb-4">Nos services</h1>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                <!-- Carte 1 : Restauration -->
+                <div class="col">
+                    <div class="card custom-card h-100">
+                        <img src="images/img-services/restauration.jpg" class="card-img-top" alt="Services de restauration">
+                        <div class="card-body">
+                            <h5 class="card-title">Restauration <i class="bi bi-egg-fried"></i></h5>
+                            <p class="card-text">Profitez d'une restauration variée avec des plats 
+                                délicieux pour tous les goûts.
+                            </p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <button class="btn custom-btn">Réserver</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carte 2 : Visite guidé -->
+                <div class="col">
+                    <div class="card custom-card h-100">
+                        <img src="images/img-services/visite_guide.webp" class="card-img-top" alt="Visite gratuit des habitats avec guide">
+                        <div class="card-body">
+                            <h5 class="card-title">Visite des habitats <i class="bi bi-person-walking"></i></h5>
+                            <p class="card-text">
+                                Partez à la découverte des habitats dse animaux avec 
+                                un guide passionné et c'est gratuit !
+                            </p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <button class="btn custom-btn">Réserver</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carte 2 : Visite guidé -->
+                <div class="col">
+                    <div class="card custom-card h-100">
+                        <img src="images/img-services/visite_train.webp" class="card-img-top" alt="Visite gratuit des habitats avec guide">
+                        <div class="card-body">
+                            <h5 class="card-title">Visite en petit train <i class="bi bi-train-front-fill"></i></h5>
+                            <p class="card-text">
+                                Découvrez le zoo confortablement installé dans un petit train,
+                                idéal pour les familles !
+                            </p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <button class="btn custom-btn">Réserver</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer text-dark p-4 mb-4">

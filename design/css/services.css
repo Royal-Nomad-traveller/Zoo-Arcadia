@@ -1,0 +1,44 @@
+.custom-card {
+    border: none !important;
+    border-radius: 20px !important;
+    background-color: #eeeebdc5 !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+.custom-card img {
+    border-radius: 20px 20px 0 0;
+    height: 250px;
+    object-fit: cover;
+}
+
+.custom-card .card-footer {
+    border-top: none;
+}
+
+.custom-btn {
+    background-color: #4CAF50 !important;
+    border-radius: 15px !important;
+    padding: 10px 20px !important;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.custom-btn:hover {
+    background-color: #388E3C;
+    transform: scale(1.03);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 530px) {
+
+    .custom-card {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .custom-card img {
+        height: 150px;
+    }
+
+}

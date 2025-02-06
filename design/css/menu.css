@@ -57,6 +57,11 @@ header {
 
 /* Responsive */
 @media (max-width: 768px) {
+
+    #btn-login {
+        display: none;
+    }
+
     .custom-navbar {
         margin: 0 30px;
     }
