@@ -6,4 +6,4 @@ node_modules/
 images/
 
 #ignorer les sensibes 
-connexion.js 
+scripts/connexion.js
