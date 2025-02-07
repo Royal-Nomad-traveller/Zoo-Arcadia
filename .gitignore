@@ -4,3 +4,6 @@ package-lock.json
 # Ignorer node_modules (les dépendances npm)
 node_modules/
 images/
+
+#ignorer les sensibes 
+connexion.js 
