@@ -76,7 +76,7 @@
                     <!-- Description -->
                     <div class="mb-3">
                       <label for="message" class="form-label">Description</label>
-                      <textarea class="form-control" id="message" rows="4" placeholder="Décrivez votre demande ici..."></textarea>
+                      <textarea class="form-control" id="message" rows="4" placeholder="Décrivez votre demande ici..." required></textarea>
                     </div>
 
                     <!-- Bouton d'envoi -->
@@ -126,7 +126,7 @@
         </div>
 
         <div class="d-flex justify-content-center mt-4">
-          <button class="btn btn-success mb-4 p-3 btn-habitat">Voir les habitats</button>
+          <button id="btn-habitat" class="btn btn-success mb-4 p-3 btn-habitat">Voir les habitats</button>
         </div>
       </section>
 
@@ -156,7 +156,7 @@
          </div>
 
          <div class="d-flex justify-content-center mt-4">
-          <a href="animaux.html" class="btn btn-success p-3 mb-4 btn-animaux">Voir nos animaux</a>
+          <button id="btn-animaux" class="btn btn-success p-3 mb-4 btn-animaux">Voir nos animaux</button>
          </div>
       </section>
 
@@ -189,7 +189,7 @@
         </div>
 
         <div class="d-flex justify-content-center mt-4">
-          <button class="btn btn-success mb-4 p-3 btn-habitat">Voir les services</button>
+          <button id="btn-services" class="btn btn-success mb-4 p-3 btn-habitat">Voir les services</button>
         </div>
       </section>
 
@@ -267,7 +267,39 @@
 
         <!-- Bouton pour laisser un avis  -->
         <div class="mt-4">
-          <button class="btn btn-success btn-avis">Laisser un avis</button>
+          <button class="btn btn-success btn-avis" data-bs-toggle="modal" data-bs-target="#avisModal">
+            Laisser un avis
+          </button>
+        </div>
+
+        <!-- Modal avis -->
+        <div class="modal fade" id="avisModal" tabindex="-1" aria-labelledby="avisModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content custom-modal">
+              <div class="modal-header">
+                <h5 class="modal-title" id="avisModalLabel">Laisser un avis</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form id="avisForm">
+                  <!-- Pseudo -->
+                  <div class="mb-3">
+                    <label for="pseudo" class="form-label">Votre pseudo</label>
+                    <input type="text" class="form-control" id="pseudo" placeholder="Entrez votre pseudo" required>
+                  </div>
+                  <!-- Avis -->
+                  <div class="mb-3">
+                    <label for="avis" class="form-label">Votre avis</label>
+                    <textarea class="form-control" id="avis" rows="4" placeholder="Partagez votre expérience..." required></textarea>
+                  </div>
+                  <!-- Bouton soumettre -->
+                  <div class="text-center">
+                    <button type="button" class="btn custom-btn">Soummetre</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -321,5 +353,6 @@
       </footer>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
       <script src="scripts/carrousel.js"></script>
+      <script src="scripts/boutons.js"></script>
     </body>
 </html>
