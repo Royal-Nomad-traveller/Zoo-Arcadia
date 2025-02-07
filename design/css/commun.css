@@ -21,3 +21,8 @@ main {
 footer {
     flex-shrink: 0;
 }
+
+#errorMessage {
+    font-size: 14px;
+    margin-top: 10px;
+}
