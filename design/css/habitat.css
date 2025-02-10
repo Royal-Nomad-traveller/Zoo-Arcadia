@@ -24,7 +24,7 @@
 }
 
 .habitat-card .card-text {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 }
 
 .btn-habitat {
@@ -46,6 +46,18 @@
     border-top: none !important;
     padding: 15px !important;
 }
+
+
+/* ------------------------------------------------------------------------ */
+/* Animaux cartes */
+.card-animal {
+    text-align: center;
+}
+
+/* --------------------------------------------------------------------------- */
+/* Modal-animal */ 
+
+
 
 @media (max-width: 530px) {
     .habitat-card {
