@@ -82,4 +82,54 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+// Informations vétérinaires
+const infosVeterinaires = {
+    "Bambi": { etat: "Bonne santé", nourriture: "Herbe", grammage: "5 kg", date: "10/02/2025", detail: "Aucune anomalie détectée." },
+    "Rafiki": { etat: "Fatigué", nourriture: "Fruits", grammage: "3 kg", date: "08/02/2025", detail: "Manque d'énergie observé." },
+    "Zazou": { etat: "En pleine forme", nourriture: "Graines", grammage: "500 g", date: "09/02/2025", detail: "Chant actif et comportement normal." },
+    "Ecouteur": { etat: "Blessé", nourriture: "Feuilles", grammage: "15 kg", date: "07/02/2025", detail: "Blessure à la patte avant gauche." },
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    const animauxContenair = document.getElementById("animaux-container");
+
+    // Ajout d'un écouteur d'événements sur les boutons "Voir détails"
+    animauxContenair.addEventListener("click", (event) => {
+        if (event.target.classList.contains("voir-details")) {
+            
+            const nom = event.target.getAttribute("data-nom");
+            const race = event.target.getAttribute("data-race");
+            const image = event.target.getAttribute("data-image");
+
+            // Récupération des informations vétérinaires
+            const infoVet = infosVeterinaires[nom] || {
+                etat: "Non renseigné",
+                nourriture: "Non renseignée",
+                grammage: "Non renseigné",
+                date: "Non renseignée",
+                detail: "Aucun détail disponible."
+            };
+
+            // Élements de la modale
+            document.getElementById("modal-nom").textContent = nom;
+            document.getElementById("modal-race").textContent = race;
+            document.getElementById("modal-image").src = image;
+            document.getElementById("modal-image").alt = nom;
+            document.getElementById("modal-description").textContent = `Ceci est une description générique de ${nom}, un(e) ${race}.`;
+
+            document.getElementById("modal-etat").textContent = infoVet.etat;
+            document.getElementById("modal-nourriture").textContent = infoVet.nourriture;
+            document.getElementById("modal-grammage").textContent = infoVet.grammage;
+            document.getElementById("modal-date").textContent = infoVet.date;
+            document.getElementById("modal-detail").textContent = infoVet.detail;
+
+            // Affichage de la modale Bootstrap
+            const modal = new bootstrap.Modal(document.getElementById("animalModal"));
+            modal.show();
+        }
+    });
+});
+
+
+
 
