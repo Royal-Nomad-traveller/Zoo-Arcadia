@@ -7,3 +7,7 @@ images/
 
 #ignorer les sensibes 
 scripts/connexion.js
+scripts/admin.js
+
+#Ignorer les pages sensibles 
+admin.html 
