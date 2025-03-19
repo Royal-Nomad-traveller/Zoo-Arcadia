@@ -1,0 +1,29 @@
+/* Partie Utilisateurs */
+
+body {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.table-users {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    margin-bottom: 20px !important;
+    text-transform: uppercase !important;
+    border: 2px solid #5aa468 !important;
+    border-radius: 50px !important;
+}
+
+.table-users th {
+    background-color: #5aa468 !important;
+    color: #0e0e0a !important;
+    font-size: 1.2rem !important;
+    padding: 10px 0 !important;
+    text-align: center !important;
+}
+
+.table-users td {
+    border: 1px solid #5aa468 !important;
+    padding: 10px 0 !important;
+    text-align: center !important;
+}

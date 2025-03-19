@@ -9,5 +9,20 @@ images/
 scripts/connexion.js
 scripts/admin.js
 
+#ignorer les dossiers utilisateurs 
+uploads/
+
 #Ignorer les pages sensibles 
 admin.html 
+
+#ignorer les fichiers de configuration
+config/Database.php 
+
+# Ignorer les fichiers générés automatiquement
+*.log
+*.tmp
+*.bak
+
+# Ignorer les fichiers de l'éditeur ou de l'IDE
+.vscode/
+.idea/

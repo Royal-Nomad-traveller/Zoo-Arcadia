@@ -1,6 +1,15 @@
-header {
-    margin-top: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
+body {
+    height: 100vh; /* Utilisez 100vh pour s'assurer que le body prend toute la hauteur de la fenêtre */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: "Neucha", serif !important;
+    background: #F5F5DC !important;
 }
+
 
 /* Bouton de connexion */
 #btn-login {
@@ -16,8 +25,8 @@ header {
     background-color: rgba(144, 238, 144, 0.8);
     border-radius: 50px;
     padding: 10px 20px;
-    margin: 0 80px;
-    top: 2%;
+    margin: 0 150px;
+    top: 25px !important;
 }
 
 /* Bouton de menu responsive */
@@ -53,6 +62,56 @@ header {
 /* Empêcher la navbar de prendre toute la largeur */
 .navbar-collapse {
     flex-grow: 0 !important;
+}
+
+
+
+#errorMessage {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.main-content {
+    flex: 1; /* Cela permet au contenu principal de prendre tout l'espace disponible entre le header et le footer */
+}
+
+.footer {
+    background-color: rgba(120, 141, 86, 0.3) !important;
+    border-radius: 30px !important;
+    margin: 0px 30px !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
+}
+
+/* Images d'énergie */
+.energy-img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.3s;
+}
+
+.energy-img:hover {
+    transform: scale(1.05);
+}
+
+/* Liens du footer */
+.footer a {
+    text-decoration: none;
+    color: black;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+    color: #2E7D32;
+}
+
+/* Mobiles */
+@media (max-width: 530px) {
+    .social-icons {
+        margin-bottom: 15px;
+    }
 }
 
 /* Responsive */
