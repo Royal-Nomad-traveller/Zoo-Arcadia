@@ -10,10 +10,15 @@ class Animal {
     }
 
     public function getAllAnimals() {
-        $stmt = $this->pdo->prepare("SELECT * FROM animals");
+        $stmt = $this->pdo->prepare("
+            SELECT animals.*, habitats.name AS habitat_name 
+            FROM animals 
+            JOIN habitats ON animals.habitat_id = habitats.id
+        ");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    
 
     public function getAnimalById($id) {
         $stmt = $this->pdo->prepare("SELECT * FROM animals WHERE id = ?");

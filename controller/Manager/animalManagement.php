@@ -86,7 +86,7 @@ $animals = $animalManager->getAllAnimals();
             <input type="file" id="image" name="image" class="form-control" required>
         </div>
 
-        <button type="submit" class="btn btn-primary">Ajouter un animal</button>
+        <button type="submit" class="btn btn-success">Ajouter un animal</button>
     </form>
 </div>
 

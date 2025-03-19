@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?= $title ?? 'Arcadia'?></title>
+        <link rel="shortcut icon" href="../public/images/favicon.ico" type="image/icon-x"/>
         <link rel="stylesheet" href="../public/design/common.css">
         <!-- Afficher dynamiquemnet le css -->
         <?php if (isset($cssFile)): ?>

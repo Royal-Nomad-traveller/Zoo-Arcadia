@@ -1,29 +1,180 @@
-/* Partie Utilisateurs */
 
+/* 🌍 Global */
 body {
     font-family: 'Roboto', sans-serif !important;
 }
 
+.card-body {
+    background-color: rgba(120, 141, 86, 0.3) !important;
+}
+
+/* 📋 Table (Utilisateurs) */
+
+
 .table-users {
-    width: 100% !important;
-    border-collapse: collapse !important;
-    border-spacing: 0 !important;
-    margin-bottom: 20px !important;
-    text-transform: uppercase !important;
-    border: 2px solid #5aa468 !important;
-    border-radius: 50px !important;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border: 2px solid #5aa468;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #fff;
 }
 
 .table-users th {
-    background-color: #5aa468 !important;
-    color: #0e0e0a !important;
-    font-size: 1.2rem !important;
-    padding: 10px 0 !important;
-    text-align: center !important;
+    background: #5aa468;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 15px;
+    text-align: center;
 }
 
 .table-users td {
-    border: 1px solid #5aa468 !important;
-    padding: 10px 0 !important;
-    text-align: center !important;
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #5aa468;
 }
+
+.table-users tr:first-child th:first-child {
+    border-top-left-radius: 15px;
+}
+
+.table-users tr:first-child th:last-child {
+    border-top-right-radius: 15px;
+}
+
+.table-users tr:last-child td:first-child {
+    border-bottom-left-radius: 15px;
+}
+
+.table-users tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+}
+
+.table-users td:nth-child(4) { /* Colonne rôle */
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* 🟢 Boutons réutilisables */
+.custom-btn {
+    border: none !important;
+    border-radius: 20px !important;
+    padding: 10px 20px !important;
+    font-size: 1.2rem !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s !important;
+}
+
+.custom-btn-success {
+    background-color: #5aa468 !important;
+}
+
+.custom-btn-success:hover {
+    background-color: #4c8b56 !important;
+}
+
+.custom-btn-danger {
+    background-color: #d9534f !important;
+}
+
+.custom-btn-danger:hover {
+    background-color: #c9302c !important;
+}
+
+/* 🏠 📷 🦁 Cartes (Habitats, Animaux, Services) */
+.custom-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px !important;
+    background: white !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+    transition: transform 0.3s ease-in-out !important;
+}
+
+.custom-card:hover {
+    transform: translateY(-5px) !important;
+}
+
+.custom-card img {
+    width: 100% !important;
+    height: 250px !important;
+    object-fit: cover !important;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+.custom-card .card-title {
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+    color: #1b7d2d !important;
+}
+
+.custom-card .card-text {
+    font-size: 1.2rem !important;
+    color: #333 !important;
+}
+
+.habitat-card .btn-container, 
+.animal-card .btn-container, 
+.service-card .btn-container {
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 15px !important;
+}
+
+
+/* 🔁 Appliquer les styles aux sections spécifiques */
+.habitat-card, .animal-card, .service-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px !important;
+    background: white !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+    transition: transform 0.3s ease-in-out !important;
+}
+
+.habitat-card:hover, .animal-card:hover, .service-card:hover {
+    transform: translateY(-5px) !important;
+}
+
+.habitat-card img, .animal-card img, .service-card img {
+    width: 100% !important;
+    height: 250px !important;
+    object-fit: cover !important;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+.habitat-card .btn, .animal-card .btn, .service-card .btn {
+    border: none !important;
+    border-radius: 20px !important;
+    padding: 10px 20px !important;
+    font-size: 1.2rem !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s !important;
+}
+
+.habitat-card .btn-success, .animal-card .btn-success, .service-card .btn-success {
+    background-color: #5aa468 !important;
+}
+
+.habitat-card .btn-success:hover, .animal-card .btn-success:hover, .service-card .btn-success:hover {
+    background-color: #4c8b56 !important;
+}
+
+.habitat-card .btn-danger, .animal-card .btn-danger, .service-card .btn-danger {
+    background-color: #d9534f !important;
+}
+
+.habitat-card .btn-danger:hover, .animal-card .btn-danger:hover, .service-card .btn-danger:hover {
+    background-color: #c9302c !important;
+}
+
+@media (min-width: 768px) {
+    .col-md-4 {
+        flex: 0 0 auto !important;
+        width: 45% !important;
+    }
+}
+

@@ -21,14 +21,14 @@ class Service {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function addService($name, $description) {
-        $stmt = $this->pdo->prepare("INSERT INTO services (name, description) VALUES (?, ?)");
-        return $stmt->execute([$name, $description]);
+    public function addService($name, $description, $prix, $image_path) {
+        $stmt = $this->pdo->prepare("INSERT INTO services (name, description, prix, image_path) VALUES (?, ?, ?, ?)");
+        return $stmt->execute([$name, $description, $prix, $image_path]);
     }
 
-    public function updateService($id, $name, $description) {
-        $stmt = $this->pdo->prepare("UPDATE services SET name = ?, description = ? WHERE id = ?");
-        return $stmt->execute([$name, $description, $id]);
+    public function updateService($id, $name, $description, $prix, $image_path) {
+        $stmt = $this->pdo->prepare("UPDATE services SET name = ?, description = ?, prix = ?, image_path = ? WHERE id = ?");
+        return $stmt->execute([$name, $description, $prix, $image_path, $id]);
     }
 
     public function deleteService($id) {
@@ -36,3 +36,4 @@ class Service {
         return $stmt->execute([$id]);
     }
 }
+

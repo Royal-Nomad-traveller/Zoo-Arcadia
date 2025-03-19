@@ -71,24 +71,7 @@ $habitats = $habitatManager->getAllHabitats();
                 <input type="file" id="image" name="image" class="form-control" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Ajouter un habitat</button>
+            <button type="submit" class="btn btn-success">Ajouter un habitat</button>
         </form>
-    </div>
-
-    <h2 class="text-center mt-5">Liste des habitats</h2>
-    <div class="row">
-        <?php foreach ($habitats as $habitat): ?>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img class="card-img-top" src="<?php echo htmlspecialchars('/uploads/' . basename($habitat['image_path'])); ?>" alt="<?php echo htmlspecialchars($habitat['name']); ?>">
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo htmlspecialchars($habitat['name']); ?></h5>
-                        <p class="card-text"><?php echo htmlspecialchars($habitat['description']); ?></p>
-                        <a href="edit_habitat.php?id=<?php echo $habitat['id']; ?>" class="btn btn-success">Modifier</a>
-                        <a href="delete_habitat.php?id=<?php echo $habitat['id']; ?>" class="btn btn-danger">Supprimer</a>
-                    </div>
-                </div>
-            </div>
-        <?php endforeach; ?>
     </div>
 

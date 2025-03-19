@@ -1,5 +1,6 @@
 <!-- filepath: /Applications/XAMPP/xamppfiles/htdocs/view/admin.php -->
 <?php
+$cssFile = '../public/design/admin.css';
 require_once '../controller/AdminController.php';
 $name = 'José';
 $title = 'Admin - Tableau de bord';
@@ -40,14 +41,12 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
                     <?php require_once '../controller/Manager/employesManager.php'; ?>
                 </div>
 
-                <!-- Section Services -->
-                <div class="tab-pane fade <?php echo ($activeTab === 'services') ? 'show active' : ''; ?>" id="services">
-                    <?php afficherServices(); ?>
-                </div>
-
                 <!-- Section Habitat -->
                 <div class="tab-pane fade <?php echo ($activeTab === 'habitats') ? 'show active' : ''; ?>" id="habitats">
-                    <?php require_once '../controller/Manager/habitatManager.php'; ?>
+                    <?php 
+                        require_once '../controller/Manager/habitatManager.php'; 
+                        afficherHabitats();
+                    ?>
                 </div>
 
                 <!-- Section Animaux -->
@@ -62,6 +61,14 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
                 <div class="tab-pane fade <?php echo ($activeTab === 'reports') ? 'show active' : ''; ?>" id="reports">
                     
                 </div>
+
+                <!-- Section Services -->
+                <div class="tab-pane fade <?php echo ($activeTab === 'services') ? 'show active' : ''; ?>" id="services">
+                    <?php 
+                        require_once '../controller/Manager/serviceManagement.php';
+                    ?>
+                </div>
+
 
                 <!-- Section Dashboard -->
                 <div class="tab-pane fade <?php echo ($activeTab === 'dashboard') ? 'show active' : ''; ?>" id="dashboard">

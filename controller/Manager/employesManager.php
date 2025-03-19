@@ -1,19 +1,34 @@
 <?php
-require_once __DIR__ . '/../../model/User.php';
+require_once __DIR__ . '/../../model/Employes.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'add_user') {
     $prenom = $_POST['prenom'];
     $nom = $_POST['nom'];
+    $email = $_POST['email']; // Ajout de l'email (il manquait)
     $role = $_POST['role'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash du mot de passe
+    $password = $_POST['password']; 
 
-    $userModel = new Users();
-    $userModel->addUser($prenom, $nom, $role, $password);
+    $employeModel = new Employes();
+
+    // Vérifier si l'email existe déjà avant d'ajouter
+    if ($employeModel->getEmployeByEmail($email)) {
+        echo "Erreur : cet email est déjà utilisé.";
+        exit;
+    }
+
+    // Ajouter l'employé
+    $result = $employeModel->addEmploye($prenom, $nom, $email, $role, $password);
+
+    if ($result) {
+        echo "Employé ajouté avec succès.";
+    } else {
+        echo "Erreur lors de l'ajout de l'employé.";
+    }
 }
 ?>
 
+
 <div class="tab-pane fade show active" id="users">
-    <?php afficherUtilisateurs(); ?>
 
     <h3>Ajouter un utilisateur</h3>
     <form method="POST" action="admin.php" class="p-4 border rounded shadow mb-4">
@@ -30,11 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         </div>
 
         <div class="mb-3">
-            <label for="role" class="form-label">Rôle :</label>
-            <select id="role" name="role" class="form-control" required>
-                <option value="vétérinaire">Vétérinaire</option>
-                <option value="employé">Employé</option>
-            </select>
+            <label for="email" class="form-label">Email :</label>
+            <input type="email" id="email" name="email" class="form-control" required>
         </div>
 
         <div class="mb-3">
@@ -42,6 +54,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             <input type="password" id="password" name="password" class="form-control" required>
         </div>
 
-        <button type="submit" class="btn btn-primary">Ajouter un utilisateur</button>
+        <div class="mb-3">
+            <label for="role" class="form-label">Rôle :</label>
+            <select id="role" name="role" class="form-control" required>
+                <option value="vétérinaire">Vétérinaire</option>
+                <option value="employé">Employé</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">Ajouter un utilisateur</button>
     </form>
+
+    <?php afficherUtilisateurs(); ?>
 </div>
