@@ -167,7 +167,8 @@ function afficherHoraires() {
     $horaires = $horaireModel->getAllHoraires();
 
     echo '<h3 class="text-center mt-4">Horaires d\'ouverture</h3>';
-    echo '<table class="table table-striped">';
+    echo '<div class="table-responsive">';
+    echo '<table class="table table-horaires">';
     echo '<thead><tr>
             <th>Jour</th>
             <th>Ouverture</th>
@@ -176,20 +177,35 @@ function afficherHoraires() {
           </tr></thead>';
     echo '<tbody>';
 
+    $icons = [
+        "Lundi" => "📅",
+        "Mardi" => "📅",
+        "Mercredi" => "📅",
+        "Jeudi" => "📅",
+        "Vendredi" => "📅",
+        "Samedi" => "🎉",
+        "Dimanche" => "⛱️"
+    ];
+
     foreach ($horaires as $horaire) {
+        $jour = htmlspecialchars($horaire['jour']);
+        $icon = isset($icons[$jour]) ? $icons[$jour] : "📆";
+
         echo '<tr>';
-        echo '<td>' . htmlspecialchars($horaire['jour']) . '</td>';
+        echo '<td>' . $icon . ' ' . $jour . '</td>';
         echo '<td>' . htmlspecialchars($horaire['heure_ouverture']) . '</td>';
         echo '<td>' . htmlspecialchars($horaire['heure_fermeture']) . '</td>';
         echo '<td>
-                <a href="edit_horaire.php?id=' . $horaire['id'] . '" class="btn btn-success">Modifier</a>
+                <a href="edit_horaire.php?id=' . $horaire['id'] . '" class="btn btn-success mb-2">Modifier</a>
                 <a href="delete_horaire.php?id=' . $horaire['id'] . '" class="btn btn-danger">Supprimer</a>
               </td>';
         echo '</tr>';
     }
 
     echo '</tbody></table>';
+    echo '</div>';
 }
+
 
 
 function afficherDashboard() {

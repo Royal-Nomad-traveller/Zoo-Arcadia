@@ -58,6 +58,59 @@ body {
     font-weight: bold;
 }
 
+/* La section horaires */
+
+/* 📆 Table Horaires - Même design que Utilisateurs */
+.table-horaires {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border: 2px solid #5aa468;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.table-horaires th {
+    background: #5aa468;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 15px;
+    text-align: center;
+}
+
+.table-horaires td {
+    padding: 12px;
+    text-align: center;
+    align-content: center;
+    border-bottom: 1px solid #5aa468;
+}
+
+/* 📅 Bordures arrondies comme la table des utilisateurs */
+.table-horaires tr:first-child th:first-child {
+    border-top-left-radius: 15px;
+}
+
+.table-horaires tr:first-child th:last-child {
+    border-top-right-radius: 15px;
+}
+
+.table-horaires tr:last-child td:first-child {
+    border-bottom-left-radius: 15px;
+}
+
+.table-horaires tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+}
+
+/* 🏷 Icônes pour rendre les jours plus visuels */
+.table-horaires td:first-child {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
 /* 🟢 Boutons réutilisables */
 .custom-btn {
     border: none !important;
@@ -175,6 +228,13 @@ body {
     .col-md-4 {
         flex: 0 0 auto !important;
         width: 45% !important;
+    }
+
+    .table-horaires th, 
+    .table-horaires td {
+        font-size: 1rem !important;
+        padding: 10px !important;
+        align-content: center !important;
     }
 }
 

@@ -3,12 +3,7 @@
 $title = "Page d'acceuil";
 $cssFile = "public/design/acceuil.css";
 ?>
-
-
-
-
     <!-- Contenu principal -->
-    
 
     <main class="main-content">
         <!-- Contenu principal de la page -->

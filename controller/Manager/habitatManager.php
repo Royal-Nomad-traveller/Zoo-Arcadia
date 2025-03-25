@@ -53,7 +53,7 @@ $habitats = $habitatManager->getAllHabitats();
 
             <div class="mb-3">
                 <label for="name" class="form-label">Nom :</label>
-                <input type="text" id="name" name="name" class="form-control" required>
+                <input type="text" id="name_habitat" name="name" class="form-control" required>
             </div>
 
             <div class="mb-3">
@@ -63,12 +63,12 @@ $habitats = $habitatManager->getAllHabitats();
 
             <div class="mb-3">
                 <label for="description" class="form-label">Description :</label>
-                <textarea id="description" name="description" class="form-control" rows="4"></textarea>
+                <textarea id="description_habitat" name="description" class="form-control" rows="4"></textarea>
             </div>
 
             <div class="mb-3">
                 <label for="image" class="form-label">Image :</label>
-                <input type="file" id="image" name="image" class="form-control" required>
+                <input type="file" id="image_habitat" name="image" class="form-control" required>
             </div>
 
             <button type="submit" class="btn btn-success">Ajouter un habitat</button>

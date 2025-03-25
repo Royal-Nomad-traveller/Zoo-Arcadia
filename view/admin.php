@@ -1,4 +1,3 @@
-<!-- filepath: /Applications/XAMPP/xamppfiles/htdocs/view/admin.php -->
 <?php
 $cssFile = '../public/design/admin.css';
 require_once '../controller/AdminController.php';
@@ -13,6 +12,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
 ?>
 
 <?php require_once '../includes/head.php'; ?>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container">
             <a class="navbar-brand" href="#">Bienvenue - <?= $name ?> </a>

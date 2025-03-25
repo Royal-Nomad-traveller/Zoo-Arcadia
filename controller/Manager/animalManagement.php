@@ -60,7 +60,7 @@ $animals = $animalManager->getAllAnimals();
 
         <div class="mb-3">
             <label for="name" class="form-label">Nom :</label>
-            <input type="text" id="name" name="name" class="form-control" required>
+            <input type="text" id="name_animal" name="name" class="form-control" required>
         </div>
 
         <div class="mb-3">
@@ -83,7 +83,7 @@ $animals = $animalManager->getAllAnimals();
 
         <div class="mb-3">
             <label for="image" class="form-label">Image :</label>
-            <input type="file" id="image" name="image" class="form-control" required>
+            <input type="file" id="image_animal" name="image" class="form-control" required>
         </div>
 
         <button type="submit" class="btn btn-success">Ajouter un animal</button>

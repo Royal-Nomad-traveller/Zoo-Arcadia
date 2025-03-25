@@ -1,5 +1,5 @@
 <?php
-require_once '../config/Database.php';
+require_once __DIR__ . '/../config/Database.php';
 
 class Employes {
     private $pdo;
@@ -29,11 +29,13 @@ class Employes {
     /**
      * Vérifier si un email existe déjà
      */
-    public function getEmployeByEmail($email) {
-        $stmt = $this->pdo->prepare("SELECT id FROM employes WHERE email = ?");
-        $stmt->execute([$email]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
+        public function getEmployeByEmail($email) {
+            $query = "SELECT * FROM employes WHERE email = :email";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->bindParam(':email', $email);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
 
     /**
      * Ajouter un nouvel employé
@@ -70,4 +72,20 @@ class Employes {
         return $stmt->execute([$id]);
     }
 }
-?>
+
+class Employee {
+    private $pdo;
+
+    public function __construct() {
+        $this->pdo = Database::getInstance()->getConnection();
+        if (!$this->pdo) {
+            die("Erreur : Impossible de se connecter à la base de données.");
+        }
+    }
+
+    public function getEmployeeByEmail($email) {
+        $stmt = $this->pdo->prepare("SELECT * FROM employes WHERE email = ?");
+        $stmt->execute([$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+}

@@ -1,13 +1,7 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-?>
-
-
-<?php
 session_start();
 require_once '../model/User.php';
+require_once '../model/Employes.php'; // Ajout du modèle pour les employés
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -16,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $userModel = new User();
     $user = $userModel->getUserByEmail($email);
 
+    // Vérifier si c'est un admin
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['role'] = $user['role'];
@@ -26,11 +21,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../view/dashboard.php");
         }
         exit();
-    } else {
-        $_SESSION['error'] = "Email ou mot de passe incorrect";
-        echo "mot de passe";
-        header("Location: ../index.php");
+    }
+
+    // Vérifier si c'est un employé ou vétérinaire
+    $employeeModel = new Employee();
+    $employee = $employeeModel->getEmployeeByEmail($email);
+
+    if ($employee && password_verify($password, $employee['password'])) {
+        $_SESSION['user_id'] = $employee['id'];
+        $_SESSION['employe_id'] = $employee['id'];
+        $_SESSION['role'] = $employee['role'];
+        $_SESSION['prenom'] = $employee['prenom'];
+        $_SESSION['nom'] = $employee['nom'];
+
+        if ($employee['role'] === 'veterinaire') {
+            header("Location: ../view/veterinaire.php");
+        } else {
+            header("Location: ../view/employer.php");
+        }
         exit();
     }
+
+    // Si l'authentification échoue
+    $_SESSION['error'] = "Email ou mot de passe incorrect";
+    header("Location: ../index.php");
+    exit();
 }
-?>
+
+
