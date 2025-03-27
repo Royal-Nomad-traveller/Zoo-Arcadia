@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['prenom'] = $employee['prenom'];
         $_SESSION['nom'] = $employee['nom'];
 
-        if ($employee['role'] === 'veterinaire') {
+        if ($employee['role'] === 'vétérinaire') {
             header("Location: ../view/veterinaire.php");
         } else {
             header("Location: ../view/employer.php");

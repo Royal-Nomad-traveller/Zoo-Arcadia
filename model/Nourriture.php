@@ -52,15 +52,17 @@ class Nourriture {
 
     // ✅ Afficher les animaux avec leur nourriture selon leur habitat et triés alphabétiquement
     public function getAnimalsWithFood() {
-        $stmt = $this->pdo->prepare("
-            SELECT a.name AS animal_name, h.name AS habitat_name, fl.food, fl.quantity, fl.date_time 
-            FROM food_log fl
-            JOIN animals a ON fl.animal_id = a.id
-            JOIN habitats h ON a.habitat_id = h.id
-            ORDER BY a.name ASC
+        $stmt = $this->pdo->query("
+            SELECT a.id AS animal_id, a.name AS animal_name, a.image, 
+                   a.species, f.food, f.quantity, f.date_time, h.name AS habitat_name
+            FROM food_log AS f 
+            JOIN animals AS a ON f.animal_id = a.id
+            JOIN habitats AS h ON a.habitat_id = h.id
+            ORDER BY h.name, f.date_time DESC
         ");
-        $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    
+    
 }
 ?>

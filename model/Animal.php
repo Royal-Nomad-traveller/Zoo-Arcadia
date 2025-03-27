@@ -40,4 +40,5 @@ class Animal {
         $stmt = $this->pdo->prepare("DELETE FROM animals WHERE id = ?");
         return $stmt->execute([$id]);
     }
+    
 }
