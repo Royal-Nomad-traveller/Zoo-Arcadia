@@ -41,4 +41,16 @@ class Animal {
         return $stmt->execute([$id]);
     }
     
+    public function getLimitedAnimals($limit = 10) {
+        $stmt = $this->pdo->prepare("
+            SELECT animals.*, habitats.name AS habitat_name 
+            FROM animals 
+            JOIN habitats ON animals.habitat_id = habitats.id
+            LIMIT ?
+        ");
+        $stmt->bindValue(1, $limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
 }

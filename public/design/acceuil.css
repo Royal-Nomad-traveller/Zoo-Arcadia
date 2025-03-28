@@ -75,6 +75,29 @@
 }
 
 /* Section animaux */
+.carousel-inner {
+    max-width: 600px !important; /* Réduit la largeur du carrousel */
+    margin: auto !important; /* Centre le carrousel */
+}
+
+.card {
+    max-width: 600px !important; /* Réduit la taille de la carte */
+    margin: auto !important; /* Centre la carte */
+    border-radius: 15px !important; /* Coins arrondis pour un meilleur design */
+}
+
+.card img {
+    border-radius: 15px !important; /* Coins arrondis pour l'image */
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 5% !important; /* Réduit la taille des boutons de navigation */
+}
+
+/*-------------------- */
+
+
+
 .title-animaux {
     font-size: 2rem;
     font-weight: bold;
@@ -108,7 +131,7 @@
 
 .animal-img {
     width: 300px;
-    height: auto;
+    height: 200px;
     justify-content: center;
     object-fit: cover;
     border-radius: 20px;
@@ -167,8 +190,6 @@
 
 .card {
     border-radius: 20px !important;
-    background: rgba(90, 164, 104, .95) !important;
-    padding: 20px !important;
     margin: 10px !important;
 }
 
@@ -177,10 +198,10 @@
     font-size: 1.2rem;
 }
 
-.carousel-control-prev,
+/* .carousel-control-prev,
 .carousel-control-next {
     width: 5%;
-}
+} */
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
@@ -294,12 +315,17 @@
         font-size: 28px;
     }
 
-    /* Cartes des avis  */
-
+    .carousel-inner {
+        max-width: 250px !important; /* Réduit la largeur du carrousel */
+        margin: auto !important; /* Centre le carrousel */
+    }
+    
     .card {
-        border-radius: 20px !important;
-        background: rgba(90, 164, 104, .95) !important;
-        padding: 20px !important;
-        margin: 10px 55px !important;
+        max-width: 250px !important; /* Réduit la taille de la carte */
+        margin: auto !important; /* Centre la carte */
+        border-radius: 15px !important; /* Coins arrondis pour un meilleur design */
+    }
+    .carousel-control-prev, .carousel-control-next {
+        width: 15% !important; /* Réduit la taille des boutons de navigation */
     }
 }

@@ -48,16 +48,26 @@ class CompteRendu {
     }
 
     public function getCompteRenduByAnimalId($animal_id) {
-        $stmt = $this->pdo->prepare("SELECT * FROM compte_rendus WHERE animal_id = ?");
+        $stmt = $this->pdo->prepare("
+            SELECT cr.*, a.name AS animal_name
+            FROM compte_rendus cr
+            JOIN animals a ON cr.animal_id = a.id
+            WHERE cr.animal_id = ?
+        ");
         $stmt->execute([$animal_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
+    
     public function getCompteRenduByDate($date) {
-        $stmt = $this->pdo->prepare("SELECT * FROM compte_rendus WHERE date_passage = ?");
+        $stmt = $this->pdo->prepare("
+            SELECT cr.*, a.name AS animal_name
+            FROM compte_rendus cr
+            JOIN animals a ON cr.animal_id = a.id
+            WHERE cr.date_passage = ?
+        ");
         $stmt->execute([$date]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+    }    
 
     public function getCompteRenduByEtat($etat) {
         $stmt = $this->pdo->prepare("SELECT * FROM compte_rendus WHERE etat = ?");
@@ -70,5 +80,16 @@ class CompteRendu {
         $stmt->execute([$nourriture]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getCompteRenduByAnimalIdAndDate($animal_id, $date) {
+        $stmt = $this->pdo->prepare("
+            SELECT cr.*, a.name AS animal_name
+            FROM compte_rendus cr
+            JOIN animals a ON cr.animal_id = a.id
+            WHERE cr.animal_id = ? AND cr.date_passage = ?
+        ");
+        $stmt->execute([$animal_id, $date]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }     
 
 }

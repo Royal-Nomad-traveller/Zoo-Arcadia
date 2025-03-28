@@ -8,6 +8,7 @@ require_once '../model/Service.php';
 require_once '../model/Animal.php';
 require_once '../model/Report.php';
 require_once '../model/Habitat.php';
+require_once '../model/CompteRendu.php';
 
 function afficherUtilisateurs() {
     $employeModel = new Employes(); // Utilisation de la bonne classe
@@ -46,19 +47,84 @@ function afficherUtilisateurs() {
     echo '</div>';
 }
 
-
-
 function afficherComptesRendus() {
-    $reportModel = new Report();
-    $rapports = $reportModel->getAllReports();
+    $compteRenduModel = new CompteRendu();
 
-    echo '<h3>Comptes Rendus Vétérinaires</h3>';
-    echo '<ul>';
-    foreach ($rapports as $rapport) {
-        echo "<li>{$rapport['animal_nom']} ({$rapport['date']}) - {$rapport['contenu']}</li>";
+    // Vérification des filtres
+    $animal_id = isset($_GET['animal_id']) && $_GET['animal_id'] !== "" ? $_GET['animal_id'] : null;
+    $date_passage = isset($_GET['date_passage']) && $_GET['date_passage'] !== "" ? $_GET['date_passage'] : null;
+
+    // Appliquer les filtres
+    if ($animal_id && $date_passage) {
+        $rapports = $compteRenduModel->getCompteRenduByAnimalIdAndDate($animal_id, $date_passage);
+    } elseif ($animal_id) {
+        $rapports = $compteRenduModel->getCompteRenduByAnimalId($animal_id);
+    } elseif ($date_passage) {
+        $rapports = $compteRenduModel->getCompteRenduByDate($date_passage);
+    } else {
+        $rapports = $compteRenduModel->getAllCompteRendu();
     }
-    echo '</ul>';
+
+    echo '<div class="container mt-4">
+        <h3 class="mb-4">Filtrer les Comptes Rendus Vétérinaires</h3>
+
+        <form method="GET" action="" class="p-4 border rounded shadow bg-light">
+            <input type="hidden" name="tab" value="reports"> <!-- Garder l’onglet actif -->
+
+            <div class="mb-3">
+                <label for="animal_id" class="form-label">Animal :</label>
+                <select name="animal_id" id="animal_id" class="form-select">
+                    <option value="">Tous</option>';
+
+                    // Récupérer la liste des animaux avec la connexion existante
+                    $pdo = Database::getInstance()->getConnection();
+                    $stmt = $pdo->query("SELECT id, name FROM animals");
+                    $animals = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach ($animals as $animal) {
+                        $selected = (isset($_GET['animal_id']) && $_GET['animal_id'] == $animal['id']) ? 'selected' : '';
+                        echo "<option value='{$animal['id']}' $selected>{$animal['name']}</option>";
+                    }
+
+    echo '</select> </div>
+
+            <div class="mb-3">
+                <label for="date_passage" class="form-label">Date :</label>
+                <input type="date" id="date_passage" name="date_passage" class="form-control" 
+                    value="' . (isset($_GET['date_passage']) ? htmlspecialchars($_GET['date_passage']) : '') . '">
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Filtrer</button>
+        </form>
+      </div>';
+
+
+
+        // Affichage des comptes rendus filtrés
+        echo '<div class="table-responsive mt-5">';
+        echo '<table class="table table-users">';
+        echo '<thead>
+                <tr>
+                    <th>Animal</th>
+                    <th>Date</th>
+                    <th>Détails</th>
+                </tr>
+            </thead>';
+        echo '<tbody>';
+
+        foreach ($rapports as $rapport) {
+            echo '<tr>';
+            echo '<td>' . htmlspecialchars($rapport['animal_name']) . '</td>';
+            echo '<td>' . htmlspecialchars($rapport['date_passage']) . '</td>';
+            echo '<td>' . htmlspecialchars($rapport['detail']) . '</td>';
+            echo '</tr>';
+        }
+
+        echo '</tbody></table>';
+        echo '</div>';
+
 }
+
 
 function afficherHabitats() {
     $habitatModel = new Habitat();

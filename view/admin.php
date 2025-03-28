@@ -59,7 +59,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
 
                 <!-- Section Comptes Rendus -->
                 <div class="tab-pane fade <?php echo ($activeTab === 'reports') ? 'show active' : ''; ?>" id="reports">
-                    
+                    <?php afficherComptesRendus(); ?>
                 </div>
 
                 <!-- Section Services -->

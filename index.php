@@ -38,8 +38,58 @@ $cssFile = "public/design/acceuil.css";
                 </div>
                 <button class="btn btn-success btn-habitat mb-3">Voir tous les habitats</button>
             </div>
-
         </section>
+        
+        <section class="container text-center mt-4">
+            <h2 class="mb-4">Nos Animaux</h2>
+
+            <?php 
+                require_once 'model/Animal.php';
+                $animal = new Animal();
+                $animaux = $animal->getLimitedAnimals(10);
+            ?>
+
+            <div id="animalCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <?php 
+                    $active = "active"; // Ajoute la classe active seulement au premier élément
+                    foreach ($animaux as $index => $animal) {
+                        $imageArray = json_decode($animal['image'], true);
+                        $imagePath = isset($imageArray[0]) ? $imageArray[0] : $animal['image']; // Prend la première image ou l'image brute
+                    ?>
+
+                    <div class="carousel-item <?= $active ?>">
+                        <div class="card">
+                            <div class="position-relative">
+                                <img src="<?= htmlspecialchars($imagePath) ?>" class="card-img-top w-100 h-auto rounded animal-img" alt="<?= htmlspecialchars($animal['name']) ?>">
+                                <div class="position-absolute w-100 text-center bg-dark bg-opacity-75 text-white py-2 rounded" style="bottom: 0;">
+                                    <h5 class="mb-1"><?= htmlspecialchars($animal['name']) ?></h5>
+                                    <p class="mb-0"><?= htmlspecialchars($animal['habitat_name']) ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php 
+                        $active = ""; // Après le premier élément, on enlève la classe active
+                    } 
+                    ?>
+                </div>
+
+                <!-- Boutons de navigation -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#animalCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#animalCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+            </div>
+
+            <!-- Bouton "Voir Plus" -->
+            <a href="animaux.php" class="btn btn-success btn-animaux mt-3">Voir plus</a>
+        </section>
+
+
     </main>
 
 <?php 
