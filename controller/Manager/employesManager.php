@@ -19,6 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     // Ajouter l'employé
     $result = $employeModel->addEmploye($prenom, $nom, $email, $role, $password);
 
+    
+
     if ($result) {
         echo "Employé ajouté avec succès.";
     } else {

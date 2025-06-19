@@ -16,7 +16,7 @@ class Avis {
 
     // Récupérer tous les avis
     public function getAllAvis() {
-        $stmt = $this->pdo->query("SELECT a.*, e.nom FROM avis a JOIN employes e ON a.employe_id = e.id ORDER BY a.date_creation DESC");
+        $stmt = $this->pdo->query("SELECT a.*, e.pseudo FROM avis a JOIN employes e ON a.employe_id = e.id ORDER BY a.date_creation DESC");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

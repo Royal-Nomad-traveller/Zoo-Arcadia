@@ -3,6 +3,8 @@
 $title = "Page d'acceuil";
 $cssFile = "public/design/acceuil.css";
 ?>
+
+
     <!-- Contenu principal -->
 
     <main class="main-content">
@@ -14,6 +16,11 @@ $cssFile = "public/design/acceuil.css";
                     <h1>Arcadia, un zoo engagé pour la planète depuis 1960</h1>
                 </div>
             </div>
+            <?php if (isset($_GET['success'])): ?>
+    <div class="alert alert-success">Message envoyé avec succès !</div>
+<?php elseif (isset($_GET['error'])): ?>
+    <div class="alert alert-danger">Veuillez remplir tous les champs.</div>
+<?php endif; ?>
         </section>
         
         <!-- Section habitats -->
@@ -36,7 +43,7 @@ $cssFile = "public/design/acceuil.css";
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <button class="btn btn-success btn-habitat mb-3">Voir tous les habitats</button>
+                <a href="view/animauxHabitats.php" class="btn btn-success btn-habitat mb-3">Voir tous les habitats</a>
             </div>
         </section>
         
@@ -86,10 +93,36 @@ $cssFile = "public/design/acceuil.css";
             </div>
 
             <!-- Bouton "Voir Plus" -->
-            <a href="animaux.php" class="btn btn-success btn-animaux mt-3">Voir plus</a>
+            <a href="view/animauxHabitats.php" class="btn btn-success btn-animaux mt-3">Voir les animaux</a>
         </section>
 
+        <!-- Section services -->
+        <section class="container text-center mt-4">
+            <?php
+                require_once 'controller/AdminController.php';
 
+                // Appeler la fonction en désactivant les boutons
+                afficherServices(false);
+            ?>
+            <a href="view/services-visit.php" class="btn btn-success btn-habitat mt-3 mb-3">Nos services</a>
+
+        </section>
+
+        <!-- Section avis -->
+        <section class="section-avis">
+            <?php 
+            require_once 'view/avis_valide.php';
+            ?>
+            <?php   
+            // Modal pour laisser un avis
+            require_once 'view/avis.php';
+            ?>
+            <?php if (isset($_GET['avis']) && $_GET['avis'] === 'envoye'): ?>
+                <div class="alert alert-success text-center mt-3">
+                    Merci pour votre avis ! Il sera affiché après validation.
+                </div>
+            <?php endif; ?>
+        </section>
     </main>
 
 <?php 

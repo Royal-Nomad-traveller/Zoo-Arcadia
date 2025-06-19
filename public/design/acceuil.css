@@ -193,10 +193,23 @@
     margin: 10px !important;
 }
 
-.stars {
-    color: #ffc107;
-    font-size: 1.2rem;
-}
+.rating {
+    direction: rtl;
+    display: inline-flex;
+  }
+  .rating input {
+    display: none;
+  }
+  .rating label {
+    font-size: 2rem;
+    color: lightgray;
+    cursor: pointer;
+  }
+  .rating input:checked ~ label,
+  .rating label:hover,
+  .rating label:hover ~ label {
+    color: gold;
+  }
 
 /* .carousel-control-prev,
 .carousel-control-next {

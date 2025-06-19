@@ -1,4 +1,15 @@
 <?php
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo '<pre>';
+    print_r($_POST);
+    print_r($_SESSION);
+    echo '</pre>';
+}
+
 require_once __DIR__ . '/../../model/Nourriture.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -14,12 +25,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $nourritureManager = new Nourriture();
     if ($nourritureManager->ajouterNourriture($employe_id, $animal_id, $food, $quantity, $date_time)) {
-        echo "Nourriture enregistrée avec succès.";
-    } else {
-        echo "Erreur lors de l'ajout.";
-    }
+    header("Location: employer.php?tab=feeding&success=1#feeding");
+    exit();
+
+}
+
 }
 ?>
+<?php if (isset($_GET['success'])): ?>
+    <div class="alert alert-success">Nourriture ajoutée avec succès.</div>
+<?php endif; ?>
+
+<?php if (isset($_GET['error'])): ?>
+    <div class="alert alert-danger">Erreur lors de l’ajout de la nourriture.</div>
+<?php endif; ?>
+
 
 <?php
 require_once __DIR__ . '/../../model/Animal.php';
@@ -29,7 +49,7 @@ $animaux = $animalManager->getAllAnimals();
 ?>
 <div class="container mt-5 mb-5">
     <h3 class="text-center mt-2 mb-3">Gestion Alimentation</h3>
-    <form class="p-4 border rounded shadow" action="employer.php" method="POST">
+    <form class="p-4 border rounded shadow" action="employer.php?tab=feeding" method="POST">
         <div class="mb-3">
             <label class="form-label" for="animal">Choisir un animal :</label>
             <select name="animal_id" class="form-control" required>

@@ -10,12 +10,17 @@ class Nourriture {
 
     // ✅ Ajouter une nourriture
     public function ajouterNourriture($employe_id, $animal_id, $food, $quantity, $date_time) {
+    try {
         $stmt = $this->pdo->prepare("
             INSERT INTO food_log (employe_id, animal_id, food, quantity, date_time) 
             VALUES (?, ?, ?, ?, ?)
         ");
         return $stmt->execute([$employe_id, $animal_id, $food, $quantity, $date_time]);
+    } catch (PDOException $e) {
+        echo "<pre>Erreur SQL : " . $e->getMessage() . "</pre>";
+        return false;
     }
+}
 
     public function afficherNourriture() {
         $stmt = $this->pdo->prepare("

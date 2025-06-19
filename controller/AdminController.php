@@ -2,13 +2,13 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once '../config/Database.php';
-require_once '../model/User.php';
-require_once '../model/Service.php';
-require_once '../model/Animal.php';
-require_once '../model/Report.php';
-require_once '../model/Habitat.php';
-require_once '../model/CompteRendu.php';
+require_once __DIR__ . '/../config/Database.php';
+require_once __DIR__ . '/../model/User.php';
+require_once __DIR__ . '/../model/Service.php';
+require_once __DIR__ . '/../model/Animal.php';
+require_once __DIR__ . '/../model/Report.php';
+require_once __DIR__ . '/../model/Habitat.php';
+require_once __DIR__ . '/../model/CompteRendu.php';
 
 function afficherUtilisateurs() {
     $employeModel = new Employes(); // Utilisation de la bonne classe
@@ -36,10 +36,13 @@ function afficherUtilisateurs() {
         echo '<td>' . htmlspecialchars($employe['prenom']) . '</td>'; // Utilisation de "prenom"
         echo '<td>' . htmlspecialchars($employe['email']) . '</td>';
         echo '<td>' . $icon . ' ' . htmlspecialchars($employe['role']) . '</td>';
-        echo '<td>
-                <a href="edit_user.php?id=' . $employe['id'] . '" class="btn btn-success mb-2">Modifier</a>
-                <a href="delete_user.php?id=' . $employe['id'] . '" class="btn btn-danger">Supprimer</a>
-              </td>';
+        echo    '<td>
+                    <form method="POST" action="admin.php" onsubmit="return confirm(\'Êtes-vous sûr de vouloir supprimer cet utilisateur ?\');">
+                        <input type="hidden" name="action" value="delete_user">
+                        <input type="hidden" name="id" value="' . $employe['id'] . '">
+                        <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                    </form>
+                </td>';
         echo '</tr>';
     }
 
@@ -199,11 +202,11 @@ function afficherAnimaux() {
     }
 }
 
-function afficherServices() {
+function afficherServices($afficherBoutons = true) {
     $serviceModel = new Service();
     $services = $serviceModel->getAllServices();
 
-    echo '<h3 class="text-center mt-4">Gestion des services</h3>';
+    echo '<h3 class="text-center mt-4">Nos Services</h3>';
     echo '<div class="row mt-4">';
 
     foreach ($services as $service) {
@@ -216,17 +219,20 @@ function afficherServices() {
         echo '<h5 class="card-title text-center">' . htmlspecialchars($service['name']) . '</h5>';
         echo '<p class="card-text">' . htmlspecialchars($service['description']) . '</p>';
         echo '<p class="card-text"><strong>Prix :</strong> ' . htmlspecialchars($service['prix']) . ' €</p>';
-        echo '<div class="btn-container">';
-        echo '<a href="edit_service.php?id=' . $service['id'] . '" class="btn btn-success">Modifier</a>';
-        echo '<a href="delete_service.php?id=' . $service['id'] . '" class="btn btn-danger">Supprimer</a>';
-        echo '</div>';
+
+        // Afficher les boutons seulement si $afficherBoutons est true
+        if ($afficherBoutons) {
+            echo '<div class="btn-container">';
+            echo '<a href="edit_service.php?id=' . $service['id'] . '" class="btn btn-success">Modifier</a>';
+            echo '<a href="delete_service.php?id=' . $service['id'] . '" class="btn btn-danger">Supprimer</a>';
+            echo '</div>';
+        }
+
         echo '</div></div></div>';
     }
 
     echo '</div>';
 }
-
-
 
 function afficherHoraires() {
     $horaireModel = new Horaire();

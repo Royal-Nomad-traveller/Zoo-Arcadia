@@ -1,6 +1,7 @@
 <?php
 $cssFile = '../public/design/admin.css';
 require_once '../controller/AdminController.php';
+require_once __DIR__ . '/../model/Employes.php';
 $name = 'José';
 $title = 'Admin - Tableau de bord';
 $activeTab = isset($_GET['tab']) ? $_GET['tab'] : 'dashboard'; // Valeur par défaut
@@ -8,6 +9,16 @@ session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../index.php");
     exit();
+}
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'delete_user') {
+    $id = $_POST['id'];
+    $employeModel = new Employes();
+    
+    if ($employeModel->deleteEmploye($id)) {
+        echo "Employé supprimé avec succès.";
+    } else {
+        echo "Erreur lors de la suppression de l'employé.";
+    }
 }
 ?>
 

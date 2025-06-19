@@ -1,141 +1,147 @@
-@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Neucha&display=swap");
 
 body {
-    height: 100vh; /* Utilisez 100vh pour s'assurer que le body prend toute la hauteur de la fenêtre */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    font-family: "Neucha", serif !important;
-    background: #F5F5DC !important;
+  height: 100vh; /* Utilisez 100vh pour s'assurer que le body prend toute la hauteur de la fenêtre */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: "Neucha", serif !important;
+  background: #f5f5dc !important;
 }
-
 
 /* Bouton de connexion */
 #btn-login {
-    margin-left: auto;
-    border-radius: 20px;
-    padding: 8px 10px;
-    font-size: 16px;
-    font-family: "Neucha", serif;
+  margin-left: auto;
+  border-radius: 20px;
+  padding: 8px 10px;
+  font-size: 16px;
+  font-family: "Neucha", serif;
 }
 
 /* Navbar */
 .custom-navbar {
-    background-color: rgba(144, 238, 144, 0.8);
-    border-radius: 50px;
-    padding: 10px 20px;
-    margin: 0 150px;
-    top: 25px !important;
+  background-color: rgba(144, 238, 144, 0.8);
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin: 0 150px;
+  top: 25px !important;
 }
 
 /* Bouton de menu responsive */
 .navbar-toggler {
-    margin-left: 10px !important;
-    background: none;
-    border: solid !important; 
-    border-radius: 100px !important;
-    outline: none !important; 
-    box-shadow: none !important; 
+  margin-left: 10px !important;
+  background: none;
+  border: solid !important;
+  border-radius: 100px !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* Logo */
 .logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 /* Lien de navigation */
 .navbar-nav .nav-link {
-    font-family: "Neucha", serif;
-    font-size: 18px;
-    color: black;
-    margin-right: 15px;
-    transition: 0.3s;
+  font-family: "Neucha", serif;
+  font-size: 18px;
+  color: black;
+  margin-right: 15px;
+  transition: 0.3s;
 }
 
 .navbar-nav .nav-link:hover {
-    color: darkgreen;
+  color: darkgreen;
 }
 
 /* Empêcher la navbar de prendre toute la largeur */
 .navbar-collapse {
-    flex-grow: 0 !important;
+  flex-grow: 0 !important;
 }
 
+/* Massage envoyer */
 
+.fade-out {
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+.fade-out.hide {
+  opacity: 0;
+}
 
 #errorMessage {
-    font-size: 14px;
-    margin-top: 10px;
+  font-size: 14px;
+  margin-top: 10px;
 }
 
 .main-content {
-    flex: 1; /* Cela permet au contenu principal de prendre tout l'espace disponible entre le header et le footer */
+  flex: 1; /* Cela permet au contenu principal de prendre tout l'espace disponible entre le header et le footer */
 }
 
 .footer {
-    background-color: rgba(120, 141, 86, 0.3) !important;
-    border-radius: 30px !important;
-    margin: 0px 30px !important;
-    position: relative !important;
-    flex-shrink: 0 !important;
+  background-color: rgba(120, 141, 86, 0.3) !important;
+  border-radius: 30px !important;
+  margin: 0px 30px !important;
+  position: relative !important;
+  flex-shrink: 0 !important;
 }
 
 /* Images d'énergie */
 .energy-img {
-    width: 200px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 20px;
-    transition: transform 0.3s;
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.3s;
 }
 
 .energy-img:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 /* Liens du footer */
 .footer a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .footer a:hover {
-    text-decoration: underline;
-    color: #2E7D32;
+  text-decoration: underline;
+  color: #2e7d32;
 }
 
 /* Mobiles */
 @media (max-width: 530px) {
-    .social-icons {
-        margin-bottom: 15px;
-    }
+  .social-icons {
+    margin-bottom: 15px;
+  }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+  #btn-login {
+    display: none;
+  }
 
-    #btn-login {
-        display: none;
-    }
+  .custom-navbar {
+    margin: 0 30px;
+  }
 
-    .custom-navbar {
-        margin: 0 30px;
-    }
-
-    .navbar-toggler {
-        margin-left: 10px !important;
-    }
+  .navbar-toggler {
+    margin-left: 10px !important;
+  }
 }
 
 @media (max-width: 530px) {
-    #btn-login {
-        display: none;
-    }
+  #btn-login {
+    display: none;
+  }
 
-    .custom-navbar {
-        margin: 0 30px;
-    }
+  .custom-navbar {
+    margin: 0 30px;
+  }
 }
